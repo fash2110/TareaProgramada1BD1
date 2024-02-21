@@ -9,7 +9,14 @@ CREATE TABLE dbo.Empleado
 id INT IDENTITY (1, 1) PRIMARY KEY
 , Nombre VARCHAR(128) NOT NULL
 , Salario MONEY NOT NULL
- ) GO; -- Inserción de empleados INSERT INTO [dbo].[Empleado] (Empleado.[Nombre], Empleado.[Salario])  VALUES ('Fernando Sanchez', 100),('Agnes Martinez', 96099),
+ )
+ GO;
+
+ -- Inserción de empleados
+ INSERT INTO [dbo].[Empleado] (Empleado.[Nombre], Empleado.[Salario]) 
+ VALUES 
+('Fernando Sanchez', 100),
+('Agnes Martinez', 96099),
 ('Irena Mcginty', 25363),
 ('James Lee', 26421),
 ('Ryan Abbott', 13094),
@@ -77,8 +84,8 @@ GO;
 
 -- SP para insertar un empleado
 CREATE PROCEDURE InsertarEmpleado
-	@Nombre VARCHAR(128),
-	@Salario Money
+	@Nombre VARCHAR(128)
+	, @Salario Money
 AS
 BEGIN
 	BEGIN TRAN
@@ -108,3 +115,6 @@ GO;
 EXEC InsertarEmpleado 'Fernando Sanchez', 1 --Da error ya que existe este nombre
 EXEC InsertarEmpleado 'Franco Quiros', 7000000 --Se ejecuta ya que no existe
 GO;
+
+CREATE ROLE SpExec
+GRANT EXEC TO SpExec
