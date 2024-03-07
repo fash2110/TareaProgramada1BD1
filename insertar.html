@@ -5,13 +5,11 @@
 
 <h1> Insertar nuevo empleado </h1>
 
- <form action="/action_page.php" method="get" accept-charset="utf-8" onsubmit>
-  <label for="fname">Nombre del empleado:</label>
-  <input type="text" id="fname" name="fname"><br><br>
-  <label for="lname">Salario:</label>
-  <input type="text" id="lname" name="fsal"><br><br>
-  <input type="submit" value="Insertar">
-</form> 
+<form action="/sistema/insertar/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
 
 <p>Regresar a <a href="/sistema">sistema</a></p>
 
