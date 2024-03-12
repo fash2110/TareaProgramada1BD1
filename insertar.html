@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1> Insertar nuevo empleado </h1>
+
+<form action="/sistema/insertar/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+
+<p>Regresar a <a href="/sistema">sistema</a></p>
+
+</body>
+</html>
